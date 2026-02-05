@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <launch>
-  <let name="background_r" value="200" />
+  <!-- Note: In XML, we use arg and set_parameter or set_remap -->
+  <arg name="background_r" default="200" />
+  
   <include file="$(find-pkg-share launch_tutorial)/launch/example_substitutions_launch.xml">
-    <let name="turtlesim_ns" value="turtlesim2" />
-    <let name="use_provided_red" value="True" />
-    <let name="new_background_r" value="$(var background_r)" />
+    <!-- Assuming the included file uses args -->
+    <arg name="turtlesim_ns" value="turtlesim2" />
+    <arg name="use_provided_red" value="True" />
+    <arg name="new_background_r" value="$(var background_r)" />
   </include>
 </launch>
