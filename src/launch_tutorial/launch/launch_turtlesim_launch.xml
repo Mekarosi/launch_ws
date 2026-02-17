@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
+  <!-- First turtlesim world -->
   <include file="$(find-pkg-share launch_tutorial)/launch/turtlesim_world_1_launch.xml" />
-<group>
-  <push_ros_namespace namespace="turtlesim2" />
-  <include file="$(find-pkg-share launch_tutorial)/launch/turtlesim_world_2_launch.xml" />
-</group>
+  
+  <!-- Group with namespace for second turtlesim -->
+  <group>
+    <push_ros_namespace namespace="turtlesim2" />
+    <include file="$(find-pkg-share launch_tutorial)/launch/turtlesim_world_2_launch.xml" />
+  </group>
+  
+  <!-- Broadcaster listener - in XML, use arg instead of let -->
   <include file="$(find-pkg-share launch_tutorial)/launch/broadcaster_listener_launch.xml">
-    <let name="target_frame" value="carrot1" />
+    <arg name="target_frame" value="carrot1" />
   </include>
+  
+  <!-- Other includes -->
   <include file="$(find-pkg-share launch_tutorial)/launch/mimic_launch.xml" />
   <include file="$(find-pkg-share launch_tutorial)/launch/fixed_broadcaster_launch.xml" />
   <include file="$(find-pkg-share launch_tutorial)/launch/turtlesim_rviz_launch.xml" />
