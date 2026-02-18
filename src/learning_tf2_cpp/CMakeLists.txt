@@ -36,6 +36,6 @@ ament_target_dependencies(
 
 install(TARGETS
    static_turtle_tf2_broadcaster
-   DESTINATION lib/${PROJECT_NAME})cd
+   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
