@@ -25,4 +25,17 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+add_executable(static_turtle_tf2_broadcaster src/static_turtle_tf2_broadcaster.cpp)
+ament_target_dependencies(
+   static_turtle_tf2_broadcaster
+   geometry_msgs
+   rclcpp
+   tf2
+   tf2_ros
+)
+
+install(TARGETS
+   static_turtle_tf2_broadcaster
+   DESTINATION lib/${PROJECT_NAME})cd
+
 ament_package()
